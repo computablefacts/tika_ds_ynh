@@ -1,20 +1,20 @@
 packaging_format = 2
 
-id = "docker_swarm"
-name = "Docker Swarm template"
-description.en = "Deploy an app with Docker Swarm"
-description.fr = "Déployez une application grâce à Docker Swarm"
+id = "tika_ds"
+name = "Apache Tika"
+description.en = "A content analysis toolkit"
+description.fr = "Une boîte à outils d'analyse de contenu"
 
-version = "1.0~ynh1"
+version = "1.24.1~ynh1"
 
 maintainers = ["pbrisacier@mncc.fr"]
 
 [upstream]
 # NB: Only the "license" key is mandatory. Remove entries for which there's no relevant data
 license = "apache-2.0"
-website = "https://www.docker.com/"
-userdoc = "https://docs.docker.com/engine/swarm/"
-code = "https://github.com/docker/engine"
+website = "https://tika.apache.org/"
+userdoc = "https://tika.apache.org/1.24.1/gettingstarted.html"
+code = "https://github.com/apache/tika/"
 
 [integration]
 yunohost = ">= 11.1.21"
@@ -23,8 +23,8 @@ multi_instance = true
 ldap = false
 sso = false
 disk = "300M"
-ram.build = "100M"
-ram.runtime = "50M"
+ram.build = "130M"
+ram.runtime = "130M"
 
 [install]
     [install.domain]
@@ -34,7 +34,7 @@ ram.runtime = "50M"
     [install.path]
     # this is a generic question - ask strings are automatically handled by YunoHost's core
     type = "path"
-    default = "/mydockerapp"
+    default = "/tika"
 
     [install.init_main_permission]
     # this is a generic question - ask strings are automatically handled by YunoHost's core

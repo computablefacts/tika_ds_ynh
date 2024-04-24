@@ -1,27 +1,16 @@
 version: "3"
 services:
   myapp:
-    image: phpmyadmin:latest
+    image: apache/tika:1.24.1
     deploy:
       replicas: 1
       resources:
         limits:
-          cpus: '0.5'
-          memory: 128M
+          cpus: '1'
+          memory: 512M
         reservations:
           cpus: '0.1'
-          memory: 20M
+          memory: 128M
     ports:
-    - target: 80
+    - target: 9998
       published: __PORT__
-    extra_hosts:
-      host.docker.internal: host-gateway
-    volumes:
-      - ./templates:/etc/nginx/templates
-    environment:
-      - PMA_ABSOLUTE_URI=__DOMAIN____PATH__
-      - PMA_HOST=host.docker.internal
-      - PMA_PORT=3306
-      - PMA_USER=__DB_USER__
-      - PMA_PASSWORD=__DB_PWD__
-      - HIDE_PHP_VERSION=true
